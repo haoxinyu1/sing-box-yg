@@ -17,7 +17,7 @@ HOSTNAME=$(hostname)
 hona=$(hostname | cut -d. -f2)
 if [ "$hona" = "serv00" ]; then
 address="serv00.net"
-keep_path="${HOME}/domains/${snb}.${USERNAME}。serv00.net/public_nodejs"
+keep_path="${HOME}/domains/${snb}.${USERNAME}.serv00.net/public_nodejs"
 [ -d "$keep_path" ] || mkdir -p "$keep_path"
 else
 address="useruno.com"
@@ -1367,6 +1367,7 @@ sed -i '' "75s/name/$USERNAME/g" "$keep_path"/app.js
 sed -i '' "75s/where/$snb/g" "$keep_path"/app.js
 curl -sSL https://raw.githubusercontent.com/haoxinyu1/sing-box-yg/main/serv00keep.sh -o serv00keep.sh && chmod +x serv00keep.sh
 fi
+																										   
 curl -sL https://raw.githubusercontent.com/haoxinyu1/sing-box-yg/main/sversion | awk -F "更新内容" '{print $1}' | head -n 1 > $WORKDIR/v
 else
 red "未安装脚本，请选择1进行安装" && exit
